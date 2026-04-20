@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="一个简洁、现代的宣传页模板：亮点、功能、价格、FAQ 与联系表单。" />
+    <title>你的产品｜简单宣传页面</title>
+    <style>
+      :root {
+        --bg: #0b1220;
+        --panel: rgba(255, 255, 255, 0.06);
+        --panel-2: rgba(255, 255, 255, 0.09);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.68);
+        --line: rgba(255, 255, 255, 0.12);
+        --brand: #7c5cff;
+        --brand-2: #22d3ee;
+        --ok: #34d399;
+        --shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+        --radius: 18px;
+        --max: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(1100px 700px at 18% 18%, rgba(124, 92, 255, 0.25), transparent 60%),
+          radial-gradient(900px 600px at 80% 22%, rgba(34, 211, 238, 0.18), transparent 60%),
+          radial-gradient(900px 700px at 60% 85%, rgba(52, 211, 153, 0.12), transparent 60%),
+          linear-gradient(180deg, #070b14 0%, #0b1220 35%, #060912 100%);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(14px);
+        background: rgba(11, 18, 32, 0.6);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+      .logo {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        box-shadow: 0 10px 28px rgba(124, 92, 255, 0.25);
+      }
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .nav-links a {
+        padding: 10px 10px;
+        border-radius: 10px;
+      }
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+      }
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 11px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.07);
+      }
+      .btn.primary {
+        border: 0;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        color: #070b14;
+        box-shadow: 0 18px 44px rgba(124, 92, 255, 0.22);
+      }
+      .btn.primary:hover {
+        filter: brightness(1.05);
+      }
+      .btn.ghost {
+        background: transparent;
+      }
+
+      .hero {
+        padding: 66px 0 28px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 10px 12px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .badge .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--ok);
+        box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.12);
+      }
+      h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(34px, 5vw, 56px);
+        line-height: 1.05;
+        letter-spacing: -0.8px;
+      }
+      .lead {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 58ch;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+      .mini {
+        display: flex;
+        gap: 16px;
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 13px;
+        flex-wrap: wrap;
+      }
+      .mini span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .mini svg {
+        width: 16px;
+        height: 16px;
+        opacity: 0.9;
+      }
+
+      .hero-card {
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .card-top {
+        padding: 18px 18px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--muted);
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .traffic {
+        display: flex;
+        gap: 8px;
+      }
+      .traffic i {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.22);
+      }
+      .traffic i:nth-child(1) {
+        background: rgba(248, 113, 113, 0.9);
+      }
+      .traffic i:nth-child(2) {
+        background: rgba(251, 191, 36, 0.9);
+      }
+      .traffic i:nth-child(3) {
+        background: rgba(52, 211, 153, 0.9);
+      }
+      .card-body {
+        padding: 16px 18px 18px;
+      }
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .kpi {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 16px;
+        padding: 12px 12px;
+      }
+      .kpi .k {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .kpi .v {
+        margin-top: 8px;
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: -0.3px;
+      }
+      .kpi .sub {
+        margin-top: 8px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.62);
+      }
+      .spark {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 12px 12px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .spark .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+      .spark .title {
+        font-weight: 900;
+        letter-spacing: -0.2px;
+      }
+      .spark .hint {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .bars {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 6px;
+        height: 80px;
+        margin-top: 12px;
+        align-items: end;
+      }
+      .bar {
+        border-radius: 10px;
+        background: linear-gradient(180deg, rgba(124, 92, 255, 0.9), rgba(34, 211, 238, 0.75));
+        opacity: 0.9;
+      }
+
+      section {
+        padding: 34px 0;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 18px;
+        margin-bottom: 16px;
+      }
+      .section-head h2 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -0.2px;
+      }
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 58ch;
+        line-height: 1.7;
+        font-size: 14px;
+      }
+
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .tile {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: var(--radius);
+        padding: 16px 16px;
+      }
+      .tile h3 {
+        margin: 10px 0 8px;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+      }
+      .tile p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .ico {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .ico svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .pricing {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 14px;
+      }
+      .plan {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: var(--radius);
+        padding: 16px 16px;
+        position: relative;
+        overflow: hidden;
+      }
+      .plan.featured {
+        background: linear-gradient(180deg, rgba(124, 92, 255, 0.18), rgba(255, 255, 255, 0.04));
+        border-color: rgba(124, 92, 255, 0.45);
+        box-shadow: 0 18px 60px rgba(124, 92, 255, 0.16);
+      }
+      .tag {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        font-size: 12px;
+        font-weight: 900;
+        color: #070b14;
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      }
+      .plan .name {
+        font-weight: 900;
+        letter-spacing: -0.2px;
+      }
+      .plan .desc {
+        color: var(--muted);
+        margin: 10px 0 0;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .price {
+        margin-top: 14px;
+        font-size: 32px;
+        font-weight: 1000;
+        letter-spacing: -0.8px;
+      }
+      .price span {
+        font-size: 13px;
+        color: var(--muted);
+        font-weight: 900;
+      }
+      ul.features {
+        margin: 14px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+      .plan .actions {
+        margin-top: 16px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .faq {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      details {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: var(--radius);
+        padding: 14px 14px;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 900;
+        list-style: none;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .cta {
+        border: 1px solid var(--line);
+        background: linear-gradient(
+          135deg,
+          rgba(124, 92, 255, 0.22),
+          rgba(34, 211, 238, 0.14),
+          rgba(255, 255, 255, 0.04)
+        );
+        border-radius: calc(var(--radius) + 6px);
+        box-shadow: var(--shadow);
+        padding: 18px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 16px;
+        align-items: center;
+      }
+      .cta h2 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -0.2px;
+      }
+      .cta p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 14px;
+      }
+
+      form {
+        display: grid;
+        gap: 10px;
+      }
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+      label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.72);
+        font-weight: 900;
+      }
+      input,
+      textarea {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(7, 11, 20, 0.55);
+        color: var(--text);
+        padding: 12px 12px;
+        outline: none;
+        font-size: 14px;
+      }
+      textarea {
+        min-height: 88px;
+        resize: vertical;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: rgba(124, 92, 255, 0.65);
+        box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.14);
+      }
+
+      .footer {
+        padding: 26px 0 44px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+        margin-top: 10px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 14px;
+      }
+      .footer .small {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .footer a {
+        color: rgba(255, 255, 255, 0.74);
+      }
+      .footer a:hover {
+        color: var(--text);
+      }
+
+      .mobile-only {
+        display: none;
+      }
+      @media (max-width: 940px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .grid3 {
+          grid-template-columns: 1fr;
+        }
+        .pricing {
+          grid-template-columns: 1fr;
+        }
+        .faq {
+          grid-template-columns: 1fr;
+        }
+        .cta {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 720px) {
+        .nav-links {
+          display: none;
+        }
+        .mobile-only {
+          display: inline-flex;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="nav" aria-label="顶部导航">
+      <div class="container nav-inner">
+        <a class="brand" href="#top" aria-label="回到顶部">
+          <span class="logo" aria-hidden="true"></span>
+          <span>你的产品</span>
+        </a>
+
+        <nav class="nav-links" aria-label="页面导航">
+          <a href="#features">亮点</a>
+          <a href="#pricing">价格</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">联系</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn ghost" href="#pricing">查看价格</a>
+          <a class="btn primary" href="#contact">立即咨询</a>
+          <button class="btn mobile-only" id="menuBtn" type="button" aria-label="打开菜单">
+            菜单
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="container hero">
+        <div class="hero-grid">
+          <div>
+            <div class="badge">
+              <span class="dot" aria-hidden="true"></span>
+              <span>上线即用｜轻量宣传页模板</span>
+            </div>
+            <h1>把你的产品说清楚<br />让用户更快下单</h1>
+            <p class="lead">
+              这是一个“够用就好”的单页宣传模板：有核心卖点、功能亮点、价格与 FAQ，再加一个简单的联系表单。
+              你只需要替换文案与价格，就能用于线上推广。
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#contact">获取演示/报价</a>
+              <a class="btn" href="#features">先看亮点</a>
+            </div>
+
+            <div class="mini" aria-label="快速卖点">
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                </svg>
+                现代简洁设计
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 6v6l4 2"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                </svg>
+                移动端适配
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M7 12l3 3 7-7"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                </svg>
+                可直接上线
+              </span>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="示意卡片">
+            <div class="card-top">
+              <span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span>转化概览（示意）</span>
+            </div>
+            <div class="card-body">
+              <div class="kpi-grid">
+                <div class="kpi">
+                  <div class="k">咨询转化</div>
+                  <div class="v">+28%</div>
+                  <div class="sub">更清晰的卖点结构</div>
+                </div>
+                <div class="kpi">
+                  <div class="k">上线耗时</div>
+                  <div class="v">15min</div>
+                  <div class="sub">替换文案即可</div>
+                </div>
+              </div>
+
+              <div class="spark" aria-label="趋势条形图（示意）">
+                <div class="row">
+                  <div class="title">本周咨询量</div>
+                  <div class="hint">7 天</div>
+                </div>
+                <div class="bars" id="bars"></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <section id="features" aria-label="亮点">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>三句话讲清楚你为什么值得买</h2>
+              <p>
+                宣传页的目标不是“介绍一切”，而是帮助用户做决策。把关键问题回答清楚：<b>你解决什么</b>、<b>为什么你更好</b>、<b>怎么开始</b>。
+              </p>
+            </div>
+          </div>
+
+          <div class="grid3">
+            <div class="tile">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 12a8 8 0 0 1 16 0"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M12 12l4-4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M12 20a8 8 0 0 0 8-8"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    opacity="0.8"
+                  />
+                </svg>
+              </div>
+              <h3>结构清晰</h3>
+              <p>从卖点到价格再到 FAQ，一路把用户带到行动按钮，减少犹豫与跳出。</p>
+            </div>
+
+            <div class="tile">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M8 12h8"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M12 8v8"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                </svg>
+              </div>
+              <h3>可复制</h3>
+              <p>复制一份改文案即可做不同活动页：新品发布、渠道投放、展会扫码页都能用。</p>
+            </div>
+
+            <div class="tile">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 3l9 6-9 6-9-6 9-6z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M3 9v8l9 6 9-6V9"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                    opacity="0.85"
+                  />
+                </svg>
+              </div>
+              <h3>不用依赖</h3>
+              <p>纯 HTML + CSS，零框架、零构建，直接双击打开或丢到任意静态托管即可。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" aria-label="价格">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>简单透明的价格</h2>
+              <p>你可以把这里改成“套餐/报价”。保持三档即可：低门槛、中位主推、企业定制。</p>
+            </div>
+          </div>
+
+          <div class="pricing">
+            <div class="plan">
+              <div class="name">入门版</div>
+              <p class="desc">适合个人/小团队快速开始。</p>
+              <div class="price">¥199 <span>/ 月</span></div>
+              <ul class="features">
+                <li>基础功能与支持</li>
+                <li>1 个项目/活动页</li>
+                <li>邮件咨询渠道</li>
+              </ul>
+              <div class="actions">
+                <a class="btn" href="#contact">了解详情</a>
+              </div>
+            </div>
+
+            <div class="plan featured">
+              <div class="tag">推荐</div>
+              <div class="name">标准版</div>
+              <p class="desc">大多数团队的最佳选择。</p>
+              <div class="price">¥599 <span>/ 月</span></div>
+              <ul class="features">
+                <li>核心功能全开</li>
+                <li>5 个项目/活动页</li>
+                <li>更快响应支持</li>
+              </ul>
+              <div class="actions">
+                <a class="btn primary" href="#contact">立即咨询</a>
+                <a class="btn" href="#faq">常见问题</a>
+              </div>
+            </div>
+
+            <div class="plan">
+              <div class="name">企业版</div>
+              <p class="desc">适合需要集成与定制的团队。</p>
+              <div class="price">定制 <span>/ 按需</span></div>
+              <ul class="features">
+                <li>专属方案与对接</li>
+                <li>私有化/合规支持</li>
+                <li>SLA 与培训服务</li>
+              </ul>
+              <div class="actions">
+                <a class="btn" href="#contact">获取报价</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" aria-label="常见问题">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>FAQ</h2>
+              <p>把用户最关心的问题放在这里，减少来回沟通的成本，提高转化。</p>
+            </div>
+          </div>
+
+          <div class="faq">
+            <details>
+              <summary>这个页面如何改成我的产品？</summary>
+              <p>替换顶部品牌名、主标题、卖点和价格；把“联系表单”的联系方式改成你的实际渠道即可。</p>
+            </details>
+            <details>
+              <summary>可以放到哪里上线？</summary>
+              <p>这是一个纯静态页面，任何静态托管都可用：对象存储、静态站点、CDN、或公司官网目录。</p>
+            </details>
+            <details>
+              <summary>联系表单会真的发出去吗？</summary>
+              <p>默认只是本地演示弹窗（不发请求）。你可以接入自己的接口，或改成跳转到企业微信/钉钉/邮箱。</p>
+            </details>
+            <details>
+              <summary>能不能更“高级”一些？</summary>
+              <p>可以：加一张产品截图、客户案例、对比表、或投放专用的转化组件（如二维码/预约日历）。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" aria-label="联系">
+        <div class="container">
+          <div class="cta">
+            <div>
+              <h2>准备好了，就从一次沟通开始</h2>
+              <p>
+                留下你的需求要点，我们会在工作时间尽快回复。你也可以把表单改成“预约演示”或“报名试用”。
+              </p>
+            </div>
+
+            <form id="contactForm" aria-label="联系表单">
+              <div class="field">
+                <label for="name">你的称呼</label>
+                <input id="name" name="name" placeholder="例如：张先生/李女士" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="contactWay">联系方式</label>
+                <input
+                  id="contactWay"
+                  name="contact"
+                  placeholder="手机/微信/邮箱"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="message">需求说明</label>
+                <textarea id="message" name="message" placeholder="你希望解决什么问题？预算/时间？"></textarea>
+              </div>
+              <button class="btn primary" type="submit">提交咨询</button>
+              <div id="formTip" style="color: var(--muted); font-size: 12px; line-height: 1.6">
+                提示：当前为演示页面，不会发送网络请求。
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" aria-label="页脚">
+      <div class="container footer-grid">
+        <div>
+          <div class="brand">
+            <span class="logo" aria-hidden="true"></span>
+            <span>你的产品</span>
+          </div>
+          <p class="small" style="margin: 10px 0 0">
+            一个简单的宣传页面模板。可用于新品发布、活动落地页、服务介绍、招聘/展会扫码页等。
+          </p>
+          <p class="small" style="margin: 10px 0 0">© <span id="year"></span> 你的产品。保留所有权利。</p>
+        </div>
+        <div>
+          <p style="margin: 0; font-weight: 900">快速入口</p>
+          <p class="small" style="margin: 10px 0 0"><a href="#features">亮点</a></p>
+          <p class="small" style="margin: 10px 0 0"><a href="#pricing">价格</a></p>
+          <p class="small" style="margin: 10px 0 0"><a href="#faq">FAQ</a></p>
+        </div>
+        <div>
+          <p style="margin: 0; font-weight: 900">联系渠道</p>
+          <p class="small" style="margin: 10px 0 0">邮箱：hello@example.com</p>
+          <p class="small" style="margin: 10px 0 0">电话：400-000-0000</p>
+          <p class="small" style="margin: 10px 0 0">地址：你的城市 · 你的路 88 号</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // 小型“趋势图”随机示意（纯演示）
+      const barsEl = document.getElementById("bars");
+      const seed = new Date().getDate();
+      const values = Array.from({ length: 12 }, (_, i) => {
+        const v = (Math.sin((i + seed) * 1.2) + 1) / 2;
+        return Math.round(18 + v * 62);
+      });
+      for (const v of values) {
+        const b = document.createElement("div");
+        b.className = "bar";
+        b.style.height = v + "%";
+        b.style.opacity = String(0.75 + (v / 100) * 0.25);
+        barsEl.appendChild(b);
+      }
+
+      document.getElementById("year").textContent = String(new Date().getFullYear());
+
+      // 联系表单：默认演示弹窗（不发请求）
+      const form = document.getElementById("contactForm");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const name = String(data.get("name") || "").trim();
+        const contact = String(data.get("contact") || "").trim();
+        alert(`已收到（演示）：\\n\\n称呼：${name}\\n联系方式：${contact}\\n\\n你可以把这里替换成真实接口提交。`);
+        form.reset();
+      });
+
+      // 移动端菜单：简单跳转列表
+      const menuBtn = document.getElementById("menuBtn");
+      menuBtn?.addEventListener("click", () => {
+        const choice = prompt("输入序号跳转：\\n1 亮点\\n2 价格\\n3 FAQ\\n4 联系");
+        const map = { "1": "#features", "2": "#pricing", "3": "#faq", "4": "#contact" };
+        const target = map[String(choice || "").trim()];
+        if (target) location.hash = target;
+      });
+    </script>
+  </body>
+</html>
